@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Valentine SAhithi ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .page {
+            display: none;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .active {
+            display: block;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            text-align: center;
+        }
+
+        img {
+            max-width: 90%;
+            border-radius: 15px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ❤️ Welcome Page -->
+<div id="welcome" class="page active" style="background-image:url('photo1.jpg');">
+    <h1>Hi SAhithi ❤️</h1>
+    <h2>Happy Valentine's Day 💖</h2>
+    <button onclick="nextPage('memory')">Enter Our World 🌸</button>
+</div>
+
+<!-- 📸 Memory Page -->
+<div id="memory" class="page" style="background-color:#ff99aa;">
+    <h1>Our Beautiful Memories 💞</h1>
+    
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+    
+    <br>
+    <button onclick="nextPage('verify')">Special Surprise 🎁</button>
+</div>
+
+<!-- 🔐 Name Verification Page -->
+<div id="verify" class="page" style="background-color:#ff6680;">
+    <h2>Enter Your Name 💌</h2>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <br><br>
+    <button onclick="checkName()">Unlock Surprise 💖</button>
+    <p id="message"></p>
+</div>
+
+<!-- 🎁 Surprise Page -->
+<div id="surprise" class="page" style="background-color:#ff3366;">
+    <h1>Yesss SAhithi 😍</h1>
+    <h2>You are my everything 💕</h2>
+    <img src="love.gif">
+    <br>
+    <button onclick="nextPage('final')">Final Surprise 💍</button>
+</div>
+
+<!-- 💍 Final Page -->
+<div id="final" class="page" style="background-image:url('couple.jpg');">
+    <h1 style="background-color:rgba(0,0,0,0.6); padding:15px; border-radius:10px;">
+        Happy Valentine's Day SAhithi ❤️  
+        <br><br>
+        I Love You Forever 💖
+    </h1>
+</div>
+
+<script>
+    function nextPage(pageId) {
+        document.querySelectorAll('.page').forEach(page => {
+            page.classList.remove('active');
+        });
+        document.getElementById(pageId).classList.add('active');
+    }
+
+    function checkName() {
+        var name = document.getElementById("nameInput").value;
+        if(name === "SAhithi") {
+            nextPage('surprise');
+        } else {
+            document.getElementById("message").innerHTML = "Only SAhithi can unlock this 💕";
+        }
+    }
+</script>
+
+</body>
+</html>
